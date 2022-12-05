@@ -9,6 +9,7 @@ import './customJs/jquery.magnific-popup.min';
 import './customJs/jquery.countdown.min';
 import './customJs/mediaelement-and-player.min';
 import './customJs/jquery.fancybox.min';
+import './customJs/masonry.pkgd';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';

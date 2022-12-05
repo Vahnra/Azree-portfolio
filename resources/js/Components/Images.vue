@@ -1,5 +1,37 @@
-<script setup>
+<script>
+import Masonry from 'masonry-layout'
 
+const ITEM_CLASSES = ['grid-item--width2 grid-item--height2', 'grid-item--width2', 'grid-item--height2']
+
+const randomInt = (min = 1, max = ITEM_CLASSES.length) => Math.floor(Math.random() * (max - min) + min)
+
+const randItemClass = () => ITEM_CLASSES[randomInt()]
+
+export default {
+  data() {
+    return {
+      items: [],
+    }
+  },
+  mounted() {
+    this.$nextTick(() => this.layout())
+  },
+  updated() {
+    this.layout()
+  },
+  methods: {
+    addItem() {
+      this.items.push({ classes: randItemClass() })
+    },
+    layout() {
+      this._masonry = new Masonry(this.$refs.masonry, {
+        itemSelector: '.grid-item',
+        columnWidth: 110,
+        percentPosition: true,
+      })
+    },
+  },
+}
 </script>
 
 <template>
@@ -10,9 +42,10 @@
 
             <div class="container-fluid photos">
 
-                <div class="row align-items-stretch">
+                <div class="grid" ref="masonry">
+                    
 
-                    <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
                         <a href="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" class="d-block photo-item" data-fancybox="gallery">
                             <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
                             <div class="photo-text-more">
@@ -23,7 +56,7 @@
                         </a>
                     </div>
 
-                    <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="grid-item grid-item--width3" data-aos="fade-up">
                         <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
                             <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
                             <div class="photo-text-more">
@@ -34,7 +67,117 @@
                         </a>
                     </div>
 
-                    <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width3" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
+                        <a href="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width3" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width3" data-aos="fade-up" >
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-item grid-item--width2" data-aos="fade-up">
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="grid-item grid-item--width2" data-aos="fade-up" >
+                        <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
+                            <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
+                            <div class="photo-text-more">
+                                <div class="photo-text-more">
+                                <h3 class="heading">Photos Title Here</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
                             <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
                             <div class="photo-text-more">
@@ -146,7 +289,7 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                     
                 </div>
 
