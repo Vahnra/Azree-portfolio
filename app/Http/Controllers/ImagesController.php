@@ -38,7 +38,23 @@ class ImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'size' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+        ]);
+
+        $image_path = $request->file('image')->store('image', 'public');
+
+        Images::create([
+            'name' => $request->name,
+            'size' => $request->size,
+            'image' => $image_path
+        ]);
+
+        sleep(1);
+
+        return redirect(route('images.index'));
     }
 
     /**
@@ -49,10 +65,9 @@ class ImagesController extends Controller
      */
     public function show(Images $images)
     {
+        dd(Images::latest()->all());
         return Inertia::render('../Components/Images', [
-
-            //
-
+            'images' => Images::latest()->all(),
         ]);
     }
 

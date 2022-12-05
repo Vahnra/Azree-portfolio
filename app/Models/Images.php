@@ -10,6 +10,8 @@ class Images extends Model
     use HasFactory;
 
     protected $fillable = [
-        'images',
+        'name',
+        'image',
+        'size'
     ];
 }
