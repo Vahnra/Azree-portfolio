@@ -10,6 +10,7 @@ import './customJs/jquery.countdown.min';
 import './customJs/mediaelement-and-player.min';
 import './customJs/jquery.fancybox.min';
 import './customJs/masonry.pkgd';
+import './customJs/imagesloaded.pkgd.min';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
