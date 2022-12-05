@@ -32,13 +32,13 @@ export default {
 
 <template>
 
-    <div class="site-wrap ms-5 me-5">
+    <div class="site-wrap">
 
         <div class="main-content">
 
             <div class="container-fluid photos">
 
-                <div class="grid" ref="masonry">
+                <div class="grid col-md-10 mx-auto" ref="masonry">
                     
 
                     <div class="grid-item grid-item--width2" data-aos="fade-up">
