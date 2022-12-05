@@ -22,8 +22,6 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
-	
-
 	var siteMenuClone = function() {
 
 		$('.js-clone-nav').each(function() {
@@ -218,18 +216,6 @@ jQuery(document).ready(function($) {
 	};
 	siteCarousel();
 
-	var siteStellar = function() {
-		$(window).stellar({
-	    responsive: false,
-	    parallaxBackgrounds: true,
-	    parallaxElements: true,
-	    horizontalScrolling: false,
-	    hideDistantElements: false,
-	    scrollProperty: 'scroll'
-	  });
-	};
-	siteStellar();
-
 	var siteCountDown = function() {
 
 		$('#date-countdown').countdown('2020/10/10', function(event) {
@@ -265,7 +251,7 @@ body {
 h1 {
     font-size: 200%;
     margin-left: 10vw;
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 
 </style>
@@ -291,10 +277,11 @@ h1 {
     </div> -->
 
     <div class="">
-        <h1>
+        <h1 class="mb-5">
             <logo />
         </h1>
 
         <images />
+
     </div>
 </template>

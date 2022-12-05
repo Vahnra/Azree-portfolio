@@ -1,9 +1,9 @@
 <template>
 
     <div>
-        <div>AZREE</div>
+        <div>NOM</div>
         <div>ILLUSTRATION</div>
-        <div>PORTFOLIO</div>
+        <div class="ms-5">PORTFOLIO</div>
     </div>
 
 </template>

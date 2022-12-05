@@ -1,9 +1,14 @@
 import './bootstrap';
 import '../css/app.css';
+import '../css/style.css';
+import '../css/fancybox.min.css';
 import 'aos/dist/aos.css';
 import './customJs/jquery-3.3.1.min';
 import './customJs/owl.carousel.min';
 import './customJs/jquery.magnific-popup.min';
+import './customJs/jquery.countdown.min';
+import './customJs/mediaelement-and-player.min';
+import './customJs/jquery.fancybox.min';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
