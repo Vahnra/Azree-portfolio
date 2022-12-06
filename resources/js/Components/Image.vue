@@ -8,7 +8,7 @@ defineProps(['image']);
         <a :href="image.image"
             class="d-block photo-item" data-fancybox="gallery">
             <img :src="image.image"
-                :alt="image.name" class="img-fluid">
+                :alt="image.name" class="img-fluid border-2 border-black">
             <div class="photo-text-more">
                 <div class="photo-text-more">
                     <h3 class="heading">{{ image.name }}</h3>

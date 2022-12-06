@@ -58,7 +58,7 @@ export default {
                         </a>
                     </div>
 
-                    <div class="grid-item grid-item--width3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="grid-item grid-item--width3" data-aos="fade-up" :data-aos-delay="$index + 100">
                         <a href="single.html" class="d-block photo-item" data-fancybox="gallery">
                             <img src="https://s3.reutersmedia.net/resources/r/?m=02&d=20211008&t=2&i=1577296446&w=780&fh=&fw=&ll=&pl=&sq=&r=2021-10-08T223610Z_42074_MRPRC2V1Q9II8U3_RTRMADP_0_SPAIN-VOLCANO" alt="Image" class="img-fluid">
                             <div class="photo-text-more">

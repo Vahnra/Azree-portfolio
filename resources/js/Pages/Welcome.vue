@@ -319,6 +319,7 @@ h1 {
 							v-for="image in images"
 							:key="image.id"
 							:image="image"
+							:data-aos-delay="(images.indexOf(image) * 100)"
 						/>
 							
 					</div>
