@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import logo from '@/Components/Logo.vue';
-import images from '@/Components/Images.vue';
+import Images from '@/Components/Image.vue'
 import AOS from 'aos';
 
 defineProps({
@@ -9,6 +9,7 @@ defineProps({
     canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String,
+	images: 'images'
 });
 
 
@@ -240,7 +241,31 @@ jQuery(document).ready(function($) {
 	siteDatePicker();
 
 });
+</script>
 
+<script>
+export default {
+  data() {
+    return {
+      items: [],
+    }
+  },
+  mounted() {
+    this.layout()
+  },
+  methods: {
+    layout() {
+        var $grid = $(this.$refs.masonry).masonry({
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            columnWidth: 110
+        });
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry();
+        });  
+    },
+  },
+}
 </script>
 
 <style>
@@ -259,7 +284,7 @@ h1 {
 <template>
     <Head title="Bienvenue" />
 
-    <!-- <div class="">
+    <div class="">
         <div v-if="canLogin" class="">
             <Link
                 v-if="$page.props.auth.user"
@@ -268,20 +293,42 @@ h1 {
                 >Dashboard</Link
             >
 
-            <template v-else>
-                <Link :href="route('login')" class="">Log in</Link>
+            <!-- <template v-else>
 
-            </template>
+                <Link :href="route('login')" class="text-white">Log in</Link>
+
+            </template> -->
         </div>
 
-    </div> -->
+    </div>
 
     <div class="">
         <h1 class="mb-5">
             <logo />
         </h1>
+		
+		<div class="site-wrap">
 
-        <images />
+			<div class="main-content">
+
+				<div class="container-fluid photos">
+
+					<div class="grid col-md-10 mx-auto" ref="masonry">
+
+						<Images
+							v-for="image in images"
+							:key="image.id"
+							:image="image"
+						/>
+							
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+		
 
     </div>
 </template>

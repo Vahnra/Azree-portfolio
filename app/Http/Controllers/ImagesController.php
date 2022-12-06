@@ -44,12 +44,14 @@ class ImagesController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 
-        $image_path = $request->file('image')->store('image', 'public');
+        $fileName = 'image/' . time().'.'.$request->file('image')->extension();  
+
+        $request->file('image')->move(public_path('image'), $fileName);
 
         Images::create([
             'name' => $request->name,
             'size' => $request->size,
-            'image' => $image_path
+            'image' => $fileName
         ]);
 
         sleep(1);
@@ -65,10 +67,7 @@ class ImagesController extends Controller
      */
     public function show(Images $images)
     {
-        dd(Images::latest()->all());
-        return Inertia::render('../Components/Images', [
-            'images' => Images::latest()->all(),
-        ]);
+    
     }
 
     /**

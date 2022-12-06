@@ -17,11 +17,6 @@ export default {
   },
   methods: {
     layout() {
-    //   this._masonry = new Masonry(this.$refs.masonry, {
-    //     itemSelector: '.grid-item',
-    //     columnWidth: 110,
-    //     percentPosition: true,
-    //   })
         var $grid = $(this.$refs.masonry).masonry({
             itemSelector: '.grid-item',
             percentPosition: true,

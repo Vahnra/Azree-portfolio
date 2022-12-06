@@ -14,10 +14,10 @@ const form = useForm({
 <template>
     <Head title="Images" />
     
-    <!-- <AuthenticatedLayout> -->
+    <AuthenticatedLayout>
         <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
             <form @submit.prevent="form.post(route('images.store'), { onSuccess: () => form.reset() })">
-                <label for="Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nom de l'image</label>
+                <label for="Name" class="block mb-2 text-sm font-medium text-gray-900">Nom de l'image</label>
                 <input type="text" v-model="form.name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="" />
@@ -25,14 +25,14 @@ const form = useForm({
                     {{ form.errors.name }}
                 </div>
 
-                <label for="Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 mt-3">Taille</label>
+                <label for="Name" class="block mb-2 text-sm font-medium text-gray-900 mt-3">Taille</label>
                 <select v-model="form.size"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                     <option disabled value="">Choisir</option>
-                    <option value="1">Petit</option>
-                    <option value="2">Moyen</option>
-                    <option value="3">Grand</option>
+                    <option value="grid-item grid-item--width1">Petit</option>
+                    <option value="grid-item grid-item--width2">Moyen</option>
+                    <option value="grid-item grid-item--width3">Grand</option>
                 </select>
                 <div v-if="form.errors.size" class="text-sm text-red-600">
                     {{ form.errors.size }}
@@ -50,5 +50,5 @@ const form = useForm({
                 </div>
             </form>
         </div>
-    <!-- </AuthenticatedLayout> -->
+    </AuthenticatedLayout>
 </template>
