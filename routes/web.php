@@ -26,7 +26,7 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
         'images' => Images::latest()->get()
     ]);
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('images', ImagesController::class)
-    ->only(['index', 'store'])
+    ->only(['index', 'store', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

@@ -88,9 +88,24 @@ class ImagesController extends Controller
      * @param  \App\Models\Images  $images
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Images $images)
+    public function update(Images $images, Request $request)
     {
-        //
+        $this->authorize('update', $images);
+
+        $image = Images::find($request->route()->parameters()['image']);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'size' => 'required',
+        ]);
+
+        $image->name = $request->get('name');
+
+        $image->size = $request->get('size');
+
+        $image->save();
+
+        return redirect(route('home'));
     }
 
     /**
@@ -99,8 +114,14 @@ class ImagesController extends Controller
      * @param  \App\Models\Images  $images
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Images $images)
+    public function destroy(Images $images, Request $request)
     {
-        //
+        $this->authorize('delete', $images);
+
+        $image = Images::find($request->route()->parameters()['image']);
+
+        $image->delete();
+
+        return redirect(route('home'));
     }
 }
