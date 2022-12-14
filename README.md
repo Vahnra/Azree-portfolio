@@ -1,3 +1,3 @@
 # Portfolio Azree
 
-Portfolio pour un client réalisé avec Laravel et utilisant un masonry layout similaire a Pinterest.
+Portfolio pour un client réalisé avec Laravel et Vue3 utilisant un masonry layout similaire a Pinterest.
